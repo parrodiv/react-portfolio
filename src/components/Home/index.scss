@@ -1,7 +1,7 @@
 .home-page {
   .text-zone{
     position: absolute;
-    left: 10%;
+    left: 20%;
     top: 50%;
     transform: translateY(-50%);
     width: 40%;
@@ -12,7 +12,7 @@
     color: #fff;
     font-size: 53px;
     margin: 0;
-    font-family: 'Coolvetica';
+    font-family: 'Helvetica Neue';
     font-weight: 400;
     
     &::before {
@@ -44,7 +44,6 @@
       opacity: 0;
       height: auto;
       animation: rotateIn 1s linear both;
-       /*both serve per avere anche il fadeIn (index.scss in Layout)*/
       animation-delay: 1.4s; 
     }
   }
