@@ -1,0 +1,11 @@
+.logo-container {
+  z-index: -10;
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  right: 15%;
+  animation: zoomIn 3s 1s;
+  left: auto;
+  margin: auto;
+}
