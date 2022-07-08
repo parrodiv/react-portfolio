@@ -1,6 +1,7 @@
 import { faBootstrap, faCss3, faGitAlt, faHtml5, faJsSquare, faReact } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect } from 'react'
+import Loader from 'react-loaders';
 import AnimatedLetters from '../AnimatedLetters'
 import './index.scss'
 
@@ -14,6 +15,7 @@ const About = () => {
   }, [])
 
   return (
+  <>
     <div className='container about-page'>
       <div className='text-zone'>
         <h1>
@@ -58,7 +60,7 @@ const About = () => {
             <FontAwesomeIcon icon={faReact} color="#5ED4F4" />
           </div>
           <div className="face5">
-            <FontAwesomeIcon icon={faGitAlt} color="#EFD81D" />
+            <FontAwesomeIcon icon={faGitAlt} color="#DD0031" />
           </div>
           <div className="face6">
             <FontAwesomeIcon icon={faBootstrap} color="#653D7C" />
@@ -66,6 +68,8 @@ const About = () => {
         </div>
       </div>
     </div>
+    <Loader type="pacman" />
+  </>
   )
 }
 

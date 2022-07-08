@@ -13,17 +13,17 @@
   animation-name: spincube; //custom animation
   animation-timing-function: ease-in-out; //smooth animation
   animation-iteration-count: infinite;
-  animation-duration: 12s;
+  animation-duration: 8s;
   transform-style: preserve-3d;
   transform-origin: 100px 100px 0; //sets the origin for an element's transformations.
-  margin-left: calc(50% - 100px); // sta in centro nella parte destra, 100px è il width del cubo 
+  margin-left: calc(50% - 100px); // sta in centro nella parte destra
   
   div {
     position: absolute;
     width: 200px;
     height: 200px;
     border: 1px solid #ccc;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.6);
     font-size: 100px;
     display: flex;
     justify-content: center;
@@ -70,6 +70,6 @@
     transform: rotateY(-270deg) rotateZ(90deg);
   }
   83%{
-    transform: rotateX(90deg)
+    transform: rotateX(90deg);
   }
 }
