@@ -1,16 +1,36 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Loader from 'react-loaders'
 import AnimatedLetters from '../AnimatedLetters'
 import './index.scss'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
+  const refForm = useRef()
 
   useEffect(() => {
     setTimeout(() => {
       setLetterClass('text-animate-hover')
     }, 3000)
   }, [])
+
+  const sendEmail = async (e) => {
+    e.preventDefault()
+    try {
+      const result = await emailjs.sendForm(
+        'service_zhlwd6o',
+        'template_etvnj09',
+        refForm.current,
+        'rlh-yaQqP7Lc3iTn0'
+      )
+      console.log(result)
+      window.location.reload(false)
+    } catch (error) {
+      console.log(error)
+    }
+   
+  }
+
   return (
     <>
       <div className='container contact-page'>
@@ -18,7 +38,7 @@ const Contact = () => {
           <h1>
             <AnimatedLetters
               letterClass={letterClass}
-              strArray={['C', 'o', 'n', 't', 'a', 'c', 't', , ' ', 'm', 'e']}
+              strArray={['C', 'o', 'n', 't', 'a', 'c', 't',' ', 'm', 'e']}
               idx={15}
             />
           </h1>
@@ -31,28 +51,40 @@ const Contact = () => {
             incidunt alias cum neque laborum. Et.
           </p>
           <div className='contact-form'>
-            <ul>
-              <li className='half'>
-                <input type='text' name='name' placeholder='Name' required />
-              </li>
-              <li className='half'>
-                <input type='email' name='email' placeholder='Email' required />
-              </li>
-              <li>
-                <input
-                  type='text'
-                  name='subject'
-                  placeholder='Subject'
-                  required
-                />
-              </li>
-              <li>
-                <textarea name='message' id='message' placeholder='Message' required></textarea>
-              </li>
-              <li>
-                <input type="submit" className='flat-button' value='SEND' />
-              </li>
-            </ul>
+            <form ref={refForm} onSubmit={sendEmail}>
+              <ul>
+                <li className='half'>
+                  <input type='text' name='name' placeholder='Name' required />
+                </li>
+                <li className='half'>
+                  <input
+                    type='email'
+                    name='email'
+                    placeholder='Email'
+                    required
+                  />
+                </li>
+                <li>
+                  <input
+                    type='text'
+                    name='subject'
+                    placeholder='Subject'
+                    required
+                  />
+                </li>
+                <li>
+                  <textarea
+                    name='message'
+                    id='message'
+                    placeholder='Message'
+                    required
+                  ></textarea>
+                </li>
+                <li>
+                  <input type='submit' className='flat-button' value='SEND' />
+                </li>
+              </ul>
+            </form>
           </div>
         </div>
       </div>
