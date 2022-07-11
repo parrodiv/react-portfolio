@@ -1,4 +1,6 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { getStorage } from 'firebase/storage'
+import {getFirestore} from 'firebase/firestore/lite'
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
@@ -15,7 +17,12 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 
-export const auth = getAuth();
-const provider = new GoogleAuthProvider();
-
+export const auth = getAuth()
+const provider = new GoogleAuthProvider()
 export const signInWithGoogle = () => signInWithPopup(auth, provider)
+
+export const db = getFirestore(app) 
+//db servirà per aggiungere docs nel portfolio collection già creato su firebase da browser
+export const storage = getStorage(app)
+
+
