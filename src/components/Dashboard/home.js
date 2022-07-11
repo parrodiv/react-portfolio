@@ -1,7 +1,9 @@
 import { useRef } from "react"
-import { auth } from "../../firebase.config"
+import { auth, db } from "../../firebase.config"
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { storage } from "../../firebase.config"
+import { addDoc } from "firebase/firestore/lite"
+import { collection } from "firebase/firestore/lite"
 
 const Home = () => {
   const form = useRef()
@@ -51,8 +53,16 @@ const Home = () => {
     )
   }
 
-  const savePortfolio = (portfolio) => {
+  const savePortfolio = async (portfolio) => {
+    //portfolio è il parametro che conterrà l'oggetto passato da uploadBytes
     console.log(portfolio)
+
+    try {
+      await addDoc(collection(db, 'portfolio'), portfolio)
+      window.location.reload(true)
+    } catch (error) {
+      alert('Failed to add portfolio')
+    }
   }
 
   return (
