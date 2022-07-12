@@ -1,0 +1,102 @@
+.portfolio-page {
+  padding-left: 100px;
+  padding-right: 50px;
+  height: 100%;
+  width: calc(100% - 150px);
+  overflow: auto;
+
+  h1.page-title {
+    margin-left: 100px;
+    margin-top: 100px;
+  }
+
+  .images-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+
+    .image-box {
+      position: relative; //img is going to be absolute
+      flex: 1 1 20%; //grow & shrink and place 4 items in a row
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+      max-width: calc(25% - 10px); //25% means 4 items in a row
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      animation: rotateIn 2.4s;
+
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+
+      .portfolio-image {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .content {
+        position: absolute;
+        width: 100%;
+        z-index: 3;
+        padding: 10px 20px;
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 1)
+        ); //180 deg dal altro verso il basso
+        bottom: -70px;
+
+        .title {
+          margin-bottom: 0;
+          margin-top: 0;
+          color: #fff;
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 24px;
+        }
+
+        .description {
+          font-size: 14px;
+          margin-bottom: 5px;
+          color: #fff;
+          font-weight: 700;
+        }
+
+        .btn {
+          margin-top: 30px;
+          margin-bottom: 10px;
+          padding: 0 23px;
+          height: 40px;
+          line-height: 34px;
+          border: 2px solid #ffd700;
+          border-radius: 4px;
+          font-size: 14px;
+          color: #fff;
+          background: transparent;
+          text-transform: uppercase;
+          font-weight: 700;
+          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+          cursor: pointer;
+        }
+
+        .btn:hover {
+          transform: translateY(-3px);
+          background: #ffd700;
+        }
+      }
+
+
+      &:hover .content {
+        bottom: 0;
+      }
+    }
+  }
+}
