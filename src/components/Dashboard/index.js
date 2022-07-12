@@ -16,8 +16,10 @@ const Dashboard = () => {
       } else {
         setUser(null)
       }
-    })
+    }, [])
   })
+
+  console.log(user)
 
   return <div>{user ? <Home /> : <Login />}</div>
 }

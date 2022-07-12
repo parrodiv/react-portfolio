@@ -5,9 +5,9 @@ const RenderPortfolio = ({portfolio}) => {
     <div className='images-container'>
       {portfolio.map((port, idx) => (
         <div className='image-box' key={idx}>
-          <img src={port.cover} alt='portfolio' className='portfolio-image' />
+          <img src={port.image} alt='portfolio' className='portfolio-image' />
           <div className='content'>
-            <p className='title'>{port.title}</p>
+            <p className='title'>{port.name}</p>
             <h4 className='description'>{port.description}</h4>
             <button className='btn' onClick={() => window.open(port.url)}>
               View
